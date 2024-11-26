@@ -7,7 +7,7 @@ export default function ProductCard({ product, onAddToCart }) {
     <View style={styles.card}>
       <Image source={{ uri: product.image }} style={styles.image} />
       <View style={styles.infoContainer}>
-        <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
+        <Text style={styles.name} numberOfLines={1}>{product.title}</Text>
         <Text style={styles.price}>${product.price.toFixed(2)}</Text>
         <TouchableOpacity
           style={styles.button}
@@ -17,6 +17,7 @@ export default function ProductCard({ product, onAddToCart }) {
         </TouchableOpacity>
       </View>
     </View>
+    
   )
 }
 const styles = StyleSheet.create({
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
       fontSize: 14,
       fontWeight: 'bold',
       marginBottom: 4,
+      height: 40,
     },
     price: {
       fontSize: 14,
