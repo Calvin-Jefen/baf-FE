@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet,ActivityIndicator } from 'react-native'
 import React, {useEffect} from 'react'
 import ProductCard from '../components/ProductCard'
 import { FlatList, Dimensions } from 'react-native';
@@ -9,12 +9,7 @@ const { width } = Dimensions.get('window');
 const numColumns = 2;
 export default function ProductScreen() {
     const dispatch = useDispatch();
-    const { items: products,status, error } = useSelector(state => state.products);
-
-    useEffect(() => {
-        console.log('useEffect', fetchProductsThunk());
-        dispatch(fetchProductsThunk());
-    }, [])
+    const {products,status } = useSelector(state => state.products);
 
     useEffect(() => {
         if (status === 'idle') {
@@ -32,25 +27,25 @@ export default function ProductScreen() {
     //   ];
     const handleAddToCart = (product) => {
         // Implement your add to cart logic here
-        console.log(`Added ${product.title} to cart`);
+        console.log(`Added ${product.Name} to cart`);
       };
       const renderItem = ({ item }) => (
         console.log("item",item),
         <ProductCard product={item} onAddToCart={handleAddToCart} />
       );
-    //   if (status === 'loading') {
-    //     return <ActivityIndicator size="large" color="#0000ff" />;
-    //   }
+      if (status === 'loading') {
+        return <ActivityIndicator size="large" color="#0000ff" />;
+      }
     
-    //   if (status === 'failed') {
-    //     return <Text>Error: {error}</Text>;
-    //   }
+      if (status === 'failed') {
+        return <Text>Error: {error}</Text>;
+      }
   return (
     <View style={styles.container}>
       <FlatList
         data={products}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.ID.toString()}
         numColumns={numColumns}
         contentContainerStyle={styles.productList}
       />
@@ -63,7 +58,7 @@ export default function ProductScreen() {
     container: {
       flex: 1,
       backgroundColor: '#f0f0f0',
-      paddingTop: 50, // Add some top padding to avoid status bar
+    //   paddingTop: 30, // Add some top padding to avoid status bar
     },
     productList: {
       padding: 8,

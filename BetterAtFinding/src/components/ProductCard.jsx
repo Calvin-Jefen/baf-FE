@@ -5,15 +5,15 @@ export default function ProductCard({ product, onAddToCart }) {
    
   return (
     <View style={styles.card}>
-      <Image source={{ uri: product.image }} style={styles.image} />
+      <Image source={{ uri: product.Image }} style={styles.image} />
       <View style={styles.infoContainer}>
-        <Text style={styles.name} numberOfLines={1}>{product.title}</Text>
-        <Text style={styles.price}>${product.price.toFixed(2)}</Text>
+        <Text style={styles.name} numberOfLines={1}>{product.Name}</Text>
+        <Text style={styles.price}>Rp{product.Price.toFixed(2)}</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => onAddToCart(product)}
         >
-          <Text style={styles.buttonText}>Add to Cart</Text>
+          <Text style={styles.buttonText}>Buy</Text>
         </TouchableOpacity>
       </View>
     </View>
