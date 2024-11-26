@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ProductScreen from './src/screens/ProductScreen';
 import MainTabNavigator from './src/navigations/MainTabNavigator';
+import ProductDetailScreen from './src/screens/ProductDetailScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -12,13 +13,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        
-        <Stack.Screen name='MainTabs' component={MainTabNavigator}/>
-        
+
+        <Stack.Screen name='MainTabs' component={MainTabNavigator} />
+        <Stack.Screen name='ProductDetail' component={ProductDetailScreen} />
+
       </Stack.Navigator>
 
     </NavigationContainer>
-    
+
   );
 }
 
