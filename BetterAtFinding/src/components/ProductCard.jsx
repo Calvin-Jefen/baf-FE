@@ -15,7 +15,7 @@ export default function ProductCard({ product, onAddToCart }) {
       }}
     >
       <View style={styles.card}>
-        <Image source={{ uri: product.Image }} srtyle={styles.image} onError={(error) => console.error('Image load error:', error)} />
+        <Image source={{ uri: product.Image }} style={styles.image} onError={(error) => console.error('Image load error:', error)} />
         <View style={styles.infoContainer}>
           <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
           <Text style={styles.price}>${Number(product.Price).toFixed(2)}</Text>

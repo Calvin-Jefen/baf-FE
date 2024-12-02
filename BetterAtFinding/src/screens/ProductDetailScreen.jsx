@@ -5,6 +5,8 @@ import { fetchProduct } from '../services/ProductService';
 export default function ProductDetailScreen({ route }) {
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
+
+
     // console.log(route);
     const productId = route.params.productId
     useEffect(() => {
@@ -21,6 +23,7 @@ export default function ProductDetailScreen({ route }) {
         }
         fetch()
     }, [productId])
+
     useEffect(() => {
         console.log('The Product: ', product);
 
@@ -32,7 +35,7 @@ export default function ProductDetailScreen({ route }) {
 
         <View style={styles.container}>
             <Image
-                source={product.Image}
+                source={{ uri: product.Image }}
                 style={styles.productImage}
             />
             <View style={styles.productDetail}>
@@ -70,9 +73,8 @@ const styles = StyleSheet.create({
         paddingBottom: 10
     },
     productImage: {
-        width: 150,
-        height: 150,
-        borderRadius: 75,
+        width: '100%',
+        aspectRatio: 1,
         marginBottom: 20,
     },
     productName: {
