@@ -3,6 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProductScreen from '../screens/ProductScreen';
 import { Ionicons } from '@expo/vector-icons';
+import LoginScreen from '../screens/LoginScreen';
 
 const Tab= createBottomTabNavigator();
 export default function MainTabNavigator() {
@@ -22,7 +23,7 @@ export default function MainTabNavigator() {
     }
     >
         <Tab.Screen name="Product List" component={ProductScreen} />
-        <Tab.Screen name="Profile" component={ProductScreen} />
+        <Tab.Screen name="Profile" component={LoginScreen} />
     </Tab.Navigator>
   )
 }
