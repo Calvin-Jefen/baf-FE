@@ -8,17 +8,23 @@ import MainTabNavigator from './src/navigations/MainTabNavigator';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/stores';
 import ProductDetailScreen from './src/screens/ProductDetailScreen';
+import LoginScreen from './src/screens/LoginScreen';
+
 
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <Provider store={store}>
+
       <NavigationContainer>
         <Stack.Navigator>
 
-          <Stack.Screen options={{ headerShown: false }} name='Main Tabs' component={MainTabNavigator} />
-          <Stack.Screen name='ProductDetail' component={ProductDetailScreen} />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen options={{headerShown: false}} name='Login' component={LoginScreen}/>
+        <Stack.Screen options={{headerShown: false}} name='MainTabs' component={MainTabNavigator}/>
+        <Stack.Screen name='ProductDetail' component={ProductDetailScreen} />
 
         </Stack.Navigator>
 

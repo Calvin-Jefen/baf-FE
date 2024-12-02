@@ -1,4 +1,4 @@
-import { View, StyleSheet, ActivityIndicator } from 'react-native'
+import { Text, View, StyleSheet, ActivityIndicator } from 'react-native'
 import React, { useEffect } from 'react'
 import ProductCard from '../components/ProductCard'
 import { FlatList, Dimensions } from 'react-native';
@@ -9,7 +9,7 @@ const { width } = Dimensions.get('window');
 const numColumns = 2;
 export default function ProductScreen() {
   const dispatch = useDispatch();
-  const { products, status } = useSelector(state => state.products);
+  const { products, status, error } = useSelector(state => state.products);
 
   useEffect(() => {
     if (status === 'idle') {

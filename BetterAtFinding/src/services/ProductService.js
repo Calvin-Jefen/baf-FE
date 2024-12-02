@@ -1,6 +1,6 @@
+import axios from "axios"
 const API = 'https://fakestoreapi.com/products'
-const API_Products = 'http://165.22.98.186:8080/api/v1/products'
-import axios from 'axios'
+const API_Products = 'http://159.223.48.190:8080/api/v1/products'
 
 
 export const fetchProducts = async () => {
