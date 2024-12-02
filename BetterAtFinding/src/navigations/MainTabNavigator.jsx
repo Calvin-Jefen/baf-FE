@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 export default function MainTabNavigator() {
   return (
     <Tab.Navigator
-      screenRoptions={(route) => ({
+      screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === 'Product List') {
