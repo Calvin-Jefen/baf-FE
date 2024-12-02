@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#fff'
     },
     productDetail: {
         alignItems: 'center',
@@ -76,7 +76,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     productName: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        flexWrap: 'wrap',
+        width: 280,
+        textAlign: 'center'
     },
     productDesc: {
         textAlign: 'left',
