@@ -1,14 +1,14 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { fetchProducts } from '../../services/ProductService'
 
 export const fetchProductsThunk = createAsyncThunk(
     'product/fetchProducts',
     async () => {
         const data = await fetchProducts();
-        console.log('first', data)
+        //    console.log('first', data)
         return data;
     }
-)   
+)
 
 const productSlice = createSlice({
     name: 'products',
@@ -33,6 +33,6 @@ const productSlice = createSlice({
                 state.error = action.error.message
             })
     }
-})   
+})
 
 export default productSlice.reducer

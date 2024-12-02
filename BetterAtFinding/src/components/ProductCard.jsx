@@ -9,16 +9,16 @@ export default function ProductCard({ product, onAddToCart }) {
     <TouchableWithoutFeedback
       onPress={() => {
         navigation.navigate('ProductDetail', {
-          productImage: product.image,
-          productId: product.id
+          productImage: product.Image,
+          productId: product.ID
         })
       }}
     >
       <View style={styles.card}>
-        <Image source={{ uri: product.image }} srtyle={styles.image} />
+        <Image source={{ uri: product.Image }} srtyle={styles.image} onError={(error) => console.error('Image load error:', error)} />
         <View style={styles.infoContainer}>
           <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
-          <Text style={styles.price}>${product.price.toFixed(2)}</Text>
+          <Text style={styles.price}>${Number(product.Price).toFixed(2)}</Text>
           <TouchableOpacity
             style={styles.button}
             onPress={() => onAddToCart(product)}
