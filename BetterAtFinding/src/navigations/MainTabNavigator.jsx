@@ -28,7 +28,7 @@ export default function MainTabNavigator() {
     >
       <Tab.Screen name="Product List" component={ProductScreen} />
       <Tab.Screen name="Purchase History" component={PurchaseHistoryScreen} />
-      <Tab.Screen name="Profile" component={CheckoutScreen} />
+      <Tab.Screen name="Profile" component={LoginScreen} />
     </Tab.Navigator>
   )
 }

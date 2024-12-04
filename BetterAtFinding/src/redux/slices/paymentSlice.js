@@ -3,9 +3,9 @@ import { createPayment } from "../../services/PaymentService";
 
 export const createPaymentThunk = createAsyncThunk(
     'payment/createPaymentThunk',
-    async (paymentData) => {
-        const data = await createPayment(paymentData)
-        console.log('data', data)
+    async (paymentData, auth) => {
+        const data = await createPayment(paymentData, auth)
+        console.log('data redux', data)
         return data
     }
 )
