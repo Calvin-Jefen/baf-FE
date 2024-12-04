@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ActivityIndicator, StyleSheet, Alert } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, Alert, Text } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const PaymentScreen = ({ route, navigation }) => {
@@ -10,7 +10,7 @@ const PaymentScreen = ({ route, navigation }) => {
     // Check for successful payment
     if (navState.url.includes('payment_success')) {
       Alert.alert('Success', 'Payment was successful!', [
-        { text: 'OK', onPress: () => navigation.navigate('Home') }
+        { text: 'OK', onPress: () => navigation.navigate('Transaction') }
       ]);
     }
     // Check for payment failure

@@ -5,18 +5,21 @@ export const createTransaction = async (data, auth) => {
      // Define headers
         const headers = {
             'Content-Type': 'application/json',
-            Authorization: auth, // Replace with your token if required
+            Authorization: 'Bearer ' + auth, // Replace with your token if required
         };
-
+        console.log(data)
+        console.log('auth', auth)
         const body={
-            ProductId: data.productId,
-            Price: data.price,
+            Product_Id: data.ID,
+            Price: data.Price.toString(),
             Qty: 1
         }
+        console.log("body",body)
     try{
         const response = await axios.post(API_OAY,body, {
             headers
         })
+        console.log('res ',response)
         return response.data
     }catch(error){
         console.log(error)

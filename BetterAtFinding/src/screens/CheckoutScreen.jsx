@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createPaymentThunk } from '../redux/slices/paymentSlice'
 import PaymentService from '../services/PaymentService'
+import { createTransaction } from '../services/PaymentService'
 
 export default function CheckoutScreen({route,navigation}) {
     const {product} = route.params
@@ -12,19 +13,52 @@ export default function CheckoutScreen({route,navigation}) {
     const {payment} =useSelector(state => state.payment)
     
 
-    const handlePayment = async () => {
+    const handlePayment = async  () => {
+        try{
+            const pay = await createTransaction(product, authToken)
+            const paymentUrl = pay?.data?.redirect_url
+            console.log('pay', pay)
+            console.log('paymentUrl', paymentUrl)
 
-        // const pay = dispatch(createPaymentThunk(product, authToken))
+            // const paymentUrl ='https://app.sandbox.midtrans.com/snap/v2/vtweb/e688e843-8087-470f-a8c3-f17a64d40630'
+            navigation.navigate('Payment', { paymentUrl });
+        }catch(error){
+            console.log(error)
+            if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+            } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+            } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+            if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+            } else {
+            // Something happened in setting up the request that triggered an Error 
+            console.log('Error', error.message);
+            }
+            }
+        }
+        
+        // dispatch(createPaymentThunk(product, authToken))
         // console.log('pay', pay)   
         // console.log('payment', payment)
-        const pay= await createTransaction(product, authToken)
-        console.log('pay', pay)
-        // In a real app, you would typically get this URL from your backend
         // const paymentUrl = 'https://your-payment-gateway.com/checkout?amount=100';
-        const paymentUrl = pay?.data?.redirect_url
+        // const paymentUrl = pay?.data?.redirect_url
 
         // const paymentUrl ='https://app.sandbox.midtrans.com/snap/v2/vtweb/e688e843-8087-470f-a8c3-f17a64d40630'
-        navigation.navigate('Payment', { paymentUrl });
+        // navigation.navigate('Payment', { paymentUrl });
     }
   return (
     <View style={styles.container}>
