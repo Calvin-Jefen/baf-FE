@@ -4,12 +4,16 @@ import ProductCard from '../components/ProductCard'
 import { FlatList, Dimensions } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsThunk } from '../redux/slices/productSlice' // {fetchProductsThunk}
+import { useNavigation } from '@react-navigation/native'
+import CheckoutScreen from './CheckoutScreen';
 
 const { width } = Dimensions.get('window');
 const numColumns = 2;
 export default function ProductScreen() {
   const dispatch = useDispatch();
   const { products, status, error } = useSelector(state => state.products);
+
+  const navigation = useNavigation()
 
   useEffect(() => {
     if (status === 'idle') {
@@ -28,6 +32,8 @@ export default function ProductScreen() {
   const handleAddToCart = (product) => {
     // Implement your add to cart logic here
     console.log(`Added ${product.Name} to cart`);
+    navigation.navigate('CheckOut',{product:product});
+    // <CheckoutScreen product={product} />
   };
   const renderItem = ({ item }) => (
     //  console.log("item",item),

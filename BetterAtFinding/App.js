@@ -9,6 +9,8 @@ import { Provider } from 'react-redux';
 import { store } from './src/redux/stores';
 import ProductDetailScreen from './src/screens/ProductDetailScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import PaymentScreen from './src/screens/PaymentScreen';
+import CheckoutScreen from './src/screens/CheckoutScreen';
 
 
 
@@ -21,8 +23,10 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen options={{ headerShown: false }} name='Login' component={LoginScreen} />
           <Stack.Screen options={{ headerShown: false }} name='MainTabs' component={MainTabNavigator} />
-          <Stack.Screen name='Product Detail' component={ProductDetailScreen} />
 
+          <Stack.Screen name='ProductDetail' component={ProductDetailScreen} />
+          <Stack.Screen name='CheckOut' component={CheckoutScreen} />
+          <Stack.Screen name='Payment' component={PaymentScreen} />
         </Stack.Navigator>
 
       </NavigationContainer>

@@ -5,6 +5,7 @@ import ProductScreen from '../screens/ProductScreen';
 import { Ionicons } from '@expo/vector-icons';
 import LoginScreen from '../screens/LoginScreen';
 import PurchaseHistoryScreen from '../screens/PurchaseHistoryScreen';
+import CheckoutScreen from '../screens/CheckoutScreen';
 
 const Tab = createBottomTabNavigator();
 export default function MainTabNavigator() {
@@ -27,7 +28,7 @@ export default function MainTabNavigator() {
     >
       <Tab.Screen name="Product List" component={ProductScreen} />
       <Tab.Screen name="Purchase History" component={PurchaseHistoryScreen} />
-      <Tab.Screen name="Profile" component={LoginScreen} />
+      <Tab.Screen name="Profile" component={CheckoutScreen} />
     </Tab.Navigator>
   )
 }
