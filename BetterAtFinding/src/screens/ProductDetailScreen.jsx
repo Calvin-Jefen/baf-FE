@@ -7,12 +7,12 @@ export default function ProductDetailScreen({ route }) {
     const [loading, setLoading] = useState(true)
 
 
-    // console.log(route);
     const productId = route.params.productId
     useEffect(() => {
         const fetch = async () => {
             try {
                 const respproduct = await fetchProduct(productId)
+                console.log(respproduct);
                 setProduct(respproduct)
 
             } catch (error) {

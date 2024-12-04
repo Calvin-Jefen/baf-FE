@@ -22,10 +22,10 @@ const authSlice = createSlice({
             state.token = null;
             state.status = 'idle';
             AsyncStorage.removeItem('userToken');
-          },
+        },
         clearError: (state) => {
             state.error = null;
-          },
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -33,15 +33,17 @@ const authSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(loginThunk.fulfilled, (state, action) => {
+                console.log('Login successful:', action.payload);
                 state.status = 'succeeded'
                 state.user = action.payload
             })
             .addCase(loginThunk.rejected, (state, action) => {
+                console.log('Login failed:', action.error);
                 state.status = 'failed'
                 state.error = action.error.message
             })
     }
 })
 
-export const {logout, clearError} = authSlice.actions
+export const { logout, clearError } = authSlice.actions
 export default authSlice.reducer
