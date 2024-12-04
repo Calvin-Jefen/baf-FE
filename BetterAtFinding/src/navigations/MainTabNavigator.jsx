@@ -6,8 +6,10 @@ import ProductScreen from '../screens/ProductScreen';
 import { Ionicons } from '@expo/vector-icons';
 import LoginScreen from '../screens/LoginScreen';
 import PurchaseHistoryScreen from '../screens/PurchaseHistoryScreen';
+import CheckoutScreen from '../screens/CheckoutScreen';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+
 
 const Tab = createBottomTabNavigator();
 export default function MainTabNavigator() {

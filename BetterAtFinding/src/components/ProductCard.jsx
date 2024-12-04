@@ -17,8 +17,8 @@ export default function ProductCard({ product, onAddToCart }) {
       <View style={styles.card}>
         <Image source={{ uri: product.Image }} style={styles.image} onError={(error) => console.error('Image load error:', error)} />
         <View style={styles.infoContainer}>
-          <Text style={styles.name} numberOfLines={1}>{product.Name}</Text>
-          <Text style={styles.price}>Rp.{Number(product.Price).toFixed(2)}</Text>
+          <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
+          <Text style={styles.price}>Rp{Number(product.Price).toFixed(2)}</Text>
           <TouchableOpacity
             style={styles.button}
             onPress={() => onAddToCart(product)}
