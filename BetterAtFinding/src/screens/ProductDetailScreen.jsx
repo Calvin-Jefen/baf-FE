@@ -41,6 +41,7 @@ export default function ProductDetailScreen({ route }) {
             <View style={styles.productDetail}>
                 <Text style={styles.productName}>{product.Name}</Text >
                 <Text style={styles.productDesc}>{product.Description}</Text >
+                <Text style={styles.productPrice}>Rp.{Number(product.Price).toFixed(2)}</Text >
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => onAddToCart(product)}
@@ -84,10 +85,20 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     productDesc: {
+
+        color: '#888',
         textAlign: 'left',
         marginLeft: 15,
         marginRight: 15,
         marginTop: 10,
+        marginBottom: 5
+    },
+    productPrice: {
+
+        color: '#888',
+        textAlign: 'left',
+        marginLeft: 15,
+        marginRight: 15,
         marginBottom: 10
     },
     button: {

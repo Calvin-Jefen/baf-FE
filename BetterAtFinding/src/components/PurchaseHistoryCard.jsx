@@ -25,7 +25,7 @@ export default function PurchaseHistoryCard({ purchaseHistory }) {
                 <Text style={styles.productName}>{purchaseHistory.name}</Text>
                 <Text style={styles.purchaseDate}>Purchase Date: {purchaseHistory.createdAt}</Text>
                 <Text style={styles.quantity}>Quantity: {purchaseHistory.qty}</Text>
-                <Text style={styles.quantity}>Price: Rp.{purchaseHistory.price}</Text>
+                <Text style={styles.quantity}>Price: Rp.{Number(purchaseHistory.price).toFixed(2)}</Text>
                 <View style={[styles.statusButton, { backgroundColor: getStatusColor(purchaseHistory.status) }]}>
                     <Text style={styles.statusButtonText}>{purchaseHistory.status}</Text>
                 </View>

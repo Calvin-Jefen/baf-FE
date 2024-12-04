@@ -17,7 +17,7 @@ export default function ProductCard({ product, onAddToCart }) {
       <View style={styles.card}>
         <Image source={{ uri: product.Image }} style={styles.image} onError={(error) => console.error('Image load error:', error)} />
         <View style={styles.infoContainer}>
-          <Text style={styles.name} numberOfLines={1}>{product.name}</Text>
+          <Text style={styles.name} numberOfLines={1}>{product.Name}</Text>
           <Text style={styles.price}>Rp.{Number(product.Price).toFixed(2)}</Text>
           <TouchableOpacity
             style={styles.button}
@@ -53,14 +53,15 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 14,
+    color: 'black',
     fontWeight: 'bold',
     marginBottom: 4,
-    height: 40,
   },
   price: {
     fontSize: 14,
     color: '#888',
     marginBottom: 8,
+    textAlign: 'center'
   },
   button: {
     backgroundColor: '#007bff',
