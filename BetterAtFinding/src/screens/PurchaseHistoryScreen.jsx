@@ -9,7 +9,7 @@ import { loginThunk } from '../redux/slices/authSlice'
 export default function PurchaseHistoryScreen() {
     const dispatch = useDispatch()
     const { user, error } = useSelector(state => state.auth)
-    const authToken = user.data
+    const authToken = user?.data
 
 
     const [purchaseHistory, setPurchaseHistory] = useState(null)

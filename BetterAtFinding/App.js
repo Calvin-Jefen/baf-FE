@@ -18,7 +18,6 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <Provider store={store}>
-
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen options={{ headerShown: false }} name='Login' component={LoginScreen} />
@@ -35,10 +34,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#f0f0f0',
-  },
-});
+
