@@ -1,5 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, } from "@reduxjs/toolkit";
 import { login } from "../../services/AuthService";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 export const loginThunk = createAsyncThunk(
     'login/loginThunk',
@@ -22,6 +24,8 @@ const authSlice = createSlice({
             state.token = null;
             state.status = 'idle';
             AsyncStorage.removeItem('userToken');
+
+
         },
         clearError: (state) => {
             state.error = null;
@@ -36,6 +40,8 @@ const authSlice = createSlice({
                 console.log('Login successful:', action.payload);
                 state.status = 'succeeded'
                 state.user = action.payload
+                AsyncStorage.setItem('userToken', state.user.data)
+
             })
             .addCase(loginThunk.rejected, (state, action) => {
                 console.log('Login failed:', action.error);
