@@ -23,9 +23,9 @@ export default function App() {
           <Stack.Screen options={{ headerShown: false }} name='Login' component={LoginScreen} />
           <Stack.Screen options={{ headerShown: false }} name='MainTabs' component={MainTabNavigator} />
 
-          <Stack.Screen name='ProductDetail' component={ProductDetailScreen} />
+          <Stack.Screen name='Product Detail' component={ProductDetailScreen} />
           <Stack.Screen name='CheckOut' component={CheckoutScreen} />
-          <Stack.Screen name='Transaction' component={PurchaseHistoryScreen}/>
+          <Stack.Screen name='Transaction' component={PurchaseHistoryScreen} />
           <Stack.Screen name='Payment' component={PaymentScreen} />
         </Stack.Navigator>
 

@@ -49,7 +49,7 @@ export default function PurchaseHistoryScreen() {
             <FlatList
                 data={purchaseHistory}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.product_id.toString()}
+                keyExtractor={(item, index) => index}
                 contentContainerStyle={styles.productList}
 
             />

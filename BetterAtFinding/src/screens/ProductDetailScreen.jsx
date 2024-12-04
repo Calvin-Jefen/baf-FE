@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react'
 import { fetchProduct } from '../services/ProductService';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProductDetailScreen({ route }) {
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
+    const navigation = useNavigation()
 
-
+    const handlebuy = (product) => {
+        navigation.navigate('CheckOut', { product: product })
+    }
     const productId = route.params.productId
     useEffect(() => {
         const fetch = async () => {
@@ -44,7 +48,7 @@ export default function ProductDetailScreen({ route }) {
                 <Text style={styles.productPrice}>Rp.{Number(product.Price).toFixed(2)}</Text >
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => onAddToCart(product)}
+                    onPress={() => handlebuy(product)}
                 >
                     <Text style={styles.buttonText} >Buy Now!</Text>
                 </TouchableOpacity>

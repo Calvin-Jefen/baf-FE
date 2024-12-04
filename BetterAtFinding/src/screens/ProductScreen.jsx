@@ -32,7 +32,7 @@ export default function ProductScreen() {
   const handleAddToCart = (product) => {
     // Implement your add to cart logic here
     console.log(`Added ${product.Name} to cart`);
-    navigation.navigate('CheckOut',{product:product});
+    navigation.navigate('CheckOut', { product: product });
     // <CheckoutScreen product={product} />
   };
   const renderItem = ({ item }) => (
